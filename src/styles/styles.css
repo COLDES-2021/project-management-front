@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.labelSearch {
+	@apply block text-sm font-medium text-gray-700;
+}
+
+.inputSearch {
+	@apply mt-1 w-1/6 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+}
+
+.labelTable {
+	@apply px-3 py-2 text-left font-medium text-gray-500 tracking-wider;
+}
+
+.resultTable {
+	@apply text-sm text-gray-500;
+}
+
+.spaceTable {
+	@apply px-3 py-2 whitespace-nowrap;
+}
+
+.actualizarText {
+	@apply text-indigo-600 hover:text-indigo-900;
+}
+
+.searchButton {
+	@apply inline-flex justify-center text-white bg-indigo-500 p-2 rounded-lg hover:bg-indigo-600 mx-4 focus:outline-none;
+}
+
+.spanSeccion {
+	@apply w-full text-gray-600 font-bold;
+}
+
+.tituloSeccion {
+	@apply md:flex mb-3;
+}
+
+.inputTextD {
+	@apply w-full bg-gray-50 border border-gray-300 rounded-md px-4 py-1 mb-3 my-2 shadow-sm;
+}
+
+.inputTextE {
+	@apply w-full bg-white border border-gray-300 rounded-md px-4 py-1 mb-3 my-2  shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500;
+}
+
+.totalVentaT {
+	@apply text-gray-500 font-bold md:w-5/6 px-3 flex justify-end;
+}
+
+.totalVentaN {
+	@apply text-gray-500 font-bold md:w-1/6 px-3 flex justify-end;
+}
+.listado {
+	@apply w-full p-1 rounded-md text-gray-500 border-gray-400 text-sm;
+}
+
+.normalButton{
+	@apply text-white bg-green-500 p-2 rounded-lg hover:bg-green-600 mx-4 focus:outline-none;
+}
+
+.buttonIcons{
+	@apply ml-3 text-gray-600;
+}

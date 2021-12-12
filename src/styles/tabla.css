@@ -1,0 +1,24 @@
+.tabla {
+  @apply min-w-full divide-y divide-gray-200;
+}
+
+.tabla thead{
+  @apply bg-gray-50;
+}
+
+
+.tabla td {
+  @apply text-sm text-gray-500 px-3 py-2 whitespace-nowrap;
+}
+
+.tabla th {
+  @apply px-3 py-2 text-left font-medium text-gray-500 tracking-wider;
+}
+
+.tabla tr:nth-child(even) {
+  @apply bg-gray-50;;
+}
+
+.tabla tr:hover {
+  @apply bg-gray-100;
+}
