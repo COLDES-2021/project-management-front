@@ -32,7 +32,7 @@ const ListarUsuarios = () => {
 
   return (
     <div className='w-11/12'>
-      <PageTitle Titulo="Listado de Usuarios" />
+      <PageTitle Titulo="Listado de Usuarios" Ruta='/'/>
       <div className='w-full h-full flex flex-col overflow-hidden'>
         <div className='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
           <div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>

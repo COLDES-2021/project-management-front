@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 import DropDown from 'components/Dropdown';
 import { Listado_EstadoUsuario } from 'utils/listados';
+import PageTitle from 'components/PageTitle';
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
@@ -55,10 +56,9 @@ const EditarUsuario = () => {
   if (queryLoading) return <div>Cargando....</div>;
 
   return (
-    <div className='flew flex-col w-full h-full items-center justify-center p-10'>
-      <Link to='/usuarios'>
-        <i className='fas fa-arrow-left text-gray-600 cursor-pointer font-bold text-xl hover:text-gray-900' />
-      </Link>
+    <div className='w-11/12'>
+      <PageTitle Titulo={"Editar Usuario"} Ruta='/usuarios' />
+      
       <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Usuario</h1>
       <form
         onSubmit={submitForm}
