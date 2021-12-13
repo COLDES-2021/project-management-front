@@ -68,3 +68,7 @@
 .buttonIcons{
 	@apply ml-3 text-gray-600;
 }
+
+.pencilEdit{
+	@apply text-yellow-400 hover:text-yellow-200 cursor-pointer;
+}
