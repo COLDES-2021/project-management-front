@@ -8,15 +8,14 @@ const DropDown = ({ label, name, defaultValue = '', required, options }) => {
     setSelectedValue(defaultValue);
   }, [defaultValue]);
   return (
-    <label htmlFor={name} className='flex flex-col my-3'>
-      <span>{label}</span>
+    <div className='grid grid-cols-2 items-center'>
+      <label htmlFor={name} className='tracking-wide mb-2'>{label}</label>
       <select
         required={required}
         name={name}
-        className='input'
+        className='inputTextE text-gray-600 w-64'
         value={selectedValue}
-        onChange={(e) => setSelectedValue(e.target.value)}
-      >
+        onChange={(e) => setSelectedValue(e.target.value)}>
         {optionsSelect.map((o) => {
           return (
             <option key={nanoid()} value={o[0]} disabled={o[2] ?? false}>
@@ -25,7 +24,7 @@ const DropDown = ({ label, name, defaultValue = '', required, options }) => {
           );
         })}
       </select>
-    </label>
+    </div>
   );
 };
 

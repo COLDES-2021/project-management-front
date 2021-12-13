@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from 'graphql/usuarios/queries';
 import Input from 'components/Input';
@@ -10,6 +10,8 @@ import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 import DropDown from 'components/Dropdown';
 import { Listado_EstadoUsuario } from 'utils/listados';
 import PageTitle from 'components/PageTitle';
+import InputDisabled from 'components/InputDisabled';
+import LittleTitle from 'components/LittleTitle';
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
@@ -57,57 +59,72 @@ const EditarUsuario = () => {
 
   return (
     <div className='w-11/12'>
-      <PageTitle Titulo={"Editar Usuario"} Ruta='/usuarios' />
-      
-      <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Usuario</h1>
-      <form
-        onSubmit={submitForm}
-        onChange={updateFormData}
-        ref={form}
-        className='flex flex-col items-center justify-center'
-      >
-        <Input
-          label='Nombre de la persona:'
-          type='text'
-          name='nombre'
-          defaultValue={queryData.Usuario.nombre}
-          required={true}
-        />
-        <Input
-          label='Apellido de la persona:'
-          type='text'
-          name='apellido'
-          defaultValue={queryData.Usuario.apellido}
-          required={true}
-        />
-        <Input
-          label='Correo de la persona:'
-          type='email'
-          name='correo'
-          defaultValue={queryData.Usuario.correo}
-          required={true}
-        />
-        <Input
-          label='Identificación de la persona:'
-          type='text'
-          name='identificacion'
-          defaultValue={queryData.Usuario.identificacion}
-          required={true}
-        />
-        <DropDown
-          label='Estado de la persona:'
-          name='estado'
-          defaultValue={queryData.Usuario.estado}
-          required={true}
-          options={Listado_EstadoUsuario}
-        />
-        <span>Rol del usuario: {queryData.Usuario.rol}</span>
-        <ButtonLoading
-          disabled={Object.keys(formData).length === 0}
-          loading={mutationLoading}
-          text='Confirmar'
-        />
-      </form>
+      <PageTitle Titulo={"Usuarios"} Ruta='/usuarios' />
+
+      <div className='grid justify-items-center'>
+        <LittleTitle ltitle="Editar Usuario"/>
+        <div className='my-3'>
+          <form onSubmit={submitForm} onChange={updateFormData} ref={form}>
+            <div className='shadow overflow-hidden sm:rounded-md p-3'>
+              <div className='grid grid-cols-1'>
+                <div>
+
+                  <Input
+                    label='Nombre'
+                    type='text'
+                    name='nombre'
+                    defaultValue={queryData.Usuario.nombre}
+                    required={true}
+                  />
+                  <Input
+                    label='Apellido'
+                    type='text'
+                    name='apellido'
+                    defaultValue={queryData.Usuario.apellido}
+                    required={true}
+                  />
+                  <Input
+                    label='Correo'
+                    type='email'
+                    name='correo'
+                    defaultValue={queryData.Usuario.correo}
+                    required={true}
+                  />
+                  <Input
+                    label='Identificación'
+                    type='text'
+                    name='identificacion'
+                    defaultValue={queryData.Usuario.identificacion}
+                    required={true}
+                  />
+                  <DropDown
+                    label='Estado'
+                    name='estado'
+                    defaultValue={queryData.Usuario.estado}
+                    required={true}
+                    options={Listado_EstadoUsuario}
+                  />
+                  <InputDisabled
+                    label='Rol de Usuario'
+                    type='text'
+                    name='rol'
+                    defaultValue={queryData.Usuario.rol}
+                    required={false}
+                  />
+
+                  <div className=" flex justify-center my-2">
+                    <ButtonLoading
+                      disabled={Object.keys(formData).length === 0}
+                      loading={mutationLoading}
+                      text='Confirmar'
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
