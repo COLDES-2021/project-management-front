@@ -68,56 +68,14 @@ const EditarUsuario = () => {
             <div className='shadow overflow-hidden sm:rounded-md p-3'>
               <div className='grid grid-cols-1'>
                 <div>
-
-                  <Input
-                    label='Nombre'
-                    type='text'
-                    name='nombre'
-                    defaultValue={queryData.Usuario.nombre}
-                    required={true}
-                  />
-                  <Input
-                    label='Apellido'
-                    type='text'
-                    name='apellido'
-                    defaultValue={queryData.Usuario.apellido}
-                    required={true}
-                  />
-                  <Input
-                    label='Correo'
-                    type='email'
-                    name='correo'
-                    defaultValue={queryData.Usuario.correo}
-                    required={true}
-                  />
-                  <Input
-                    label='Identificación'
-                    type='text'
-                    name='identificacion'
-                    defaultValue={queryData.Usuario.identificacion}
-                    required={true}
-                  />
-                  <DropDown
-                    label='Estado'
-                    name='estado'
-                    defaultValue={queryData.Usuario.estado}
-                    required={true}
-                    options={Listado_EstadoUsuario}
-                  />
-                  <InputDisabled
-                    label='Rol de Usuario'
-                    type='text'
-                    name='rol'
-                    defaultValue={queryData.Usuario.rol}
-                    required={false}
-                  />
-
+                  <Input label='Nombre' type='text' name='nombre' defaultValue={queryData.Usuario.nombre} required={true}/>
+                  <Input label='Apellido' type='text' name='apellido' defaultValue={queryData.Usuario.apellido} required={true}/>
+                  <Input label='Correo' type='email' name='correo' defaultValue={queryData.Usuario.correo} required={true} />
+                  <Input label='Identificación' type='text' name='identificacion' defaultValue={queryData.Usuario.identificacion}/>
+                  <DropDown label='Estado' name='estado' defaultValue={queryData.Usuario.estado} required={true} options={Listado_EstadoUsuario}/>
+                  <InputDisabled label='Rol de Usuario' type='text' name='rol' defaultValue={queryData.Usuario.rol} required={false}/>
                   <div className=" flex justify-center my-2">
-                    <ButtonLoading
-                      disabled={Object.keys(formData).length === 0}
-                      loading={mutationLoading}
-                      text='Confirmar'
-                    />
+                    <ButtonLoading disabled={Object.keys(formData).length === 0} loading={mutationLoading} text='Confirmar' />
                   </div>
                 </div>
               </div>
