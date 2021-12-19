@@ -37,13 +37,13 @@ const LOGIN = gql`
   }
 `;
 
-const VALIDATE_TOKEN = gql`
-  mutation ValidateToken {
-    validateToken {
+const REFRESH_TOKEN = gql`
+  mutation RefreshToken {
+    refreshToken {
       token
       error
     }
   }
 `;
 
-export { REGISTRAR_USUARIO, LOGIN, VALIDATE_TOKEN };
+export { REGISTRAR_USUARIO, LOGIN, REFRESH_TOKEN };

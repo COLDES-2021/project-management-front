@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PrivateLayout from 'layouts/PrivateLayout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UserContext } from 'context/userContext';
@@ -16,12 +16,32 @@ import AuthLayout from 'layouts/AuthLayout';
 import Register from 'pages/auth/register';
 import Login from 'pages/auth/login';
 import { AuthContext } from 'context/authContext';
+import { setContext } from '@apollo/client/link/context';
+import jwt_decode from 'jwt-decode';
 
+const httpLink = createHttpLink({
+  uri: 'http://localhost:4000/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+
+  // Obtener token de almacenamiento local si este existe
+
+  const token = JSON.parse(localStorage.getItem('token'));
+
+  // Retornar el contexto a los headers para que httpLink lo pueda leer
+
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-  
   cache: new InMemoryCache(),
+  link: authLink.concat(httpLink),
 });
 
 function App() {
@@ -32,8 +52,24 @@ function App() {
     setAuthToken(token);
     if (token) {
       localStorage.setItem('token', JSON.stringify(token));
+    } else {
+      localStorage.removeItem('token');
     }
   };
+
+  useEffect(() => {
+    if (authToken) {
+      const decoded = jwt_decode(authToken);
+      setUserData({
+        _id: decoded._id,
+        nombre: decoded.nombre,
+        apellido: decoded.apellido,
+        identificacion: decoded.identificacion,
+        correo: decoded.correo,
+        rol: decoded.rol,
+      });
+    }
+  }, [authToken]);
 
   return (
     <ApolloProvider client={client}>
