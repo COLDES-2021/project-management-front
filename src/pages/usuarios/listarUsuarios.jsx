@@ -69,7 +69,7 @@ const ListarUsuarios = () => {
                             <td>{Listado_EstadoUsuario[u.estado]}</td>
                             <td>
                               <Link to={`/usuarios/editar/${u._id}`}>
-                                <i className='fas fa-pen pencilEdit' />
+                                <i className='fas fa-pen pencilEdit mx-3' />
                               </Link>
                             </td>
                           </tr>

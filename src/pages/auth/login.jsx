@@ -30,6 +30,8 @@ const Login = () => {
             if (dataMutation.login.token) {
                 setToken(dataMutation.login.token);
                 navigate('/');
+            } else{
+                navigate('/auth/register');
             }
         }
     }, [dataMutation, setToken, navigate]);

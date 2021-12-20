@@ -6,7 +6,7 @@ const ButtonLoading = ({ disabled, loading, text }) => {
     <button
       disabled={disabled}
       type='submit'
-      className='searchButton disabled:opacity-50 disabled:bg-gray-700'>
+      className='normalButton disabled:opacity-50 disabled:bg-gray-700'>
       {loading ? <ReactLoading type='spin' height={30} width={30} /> : text}
     </button>
   );

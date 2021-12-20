@@ -10,4 +10,20 @@ const Listado_EstadoUsuario = {
   No_Autorizado: 'No autorizado',
 };
 
-export { Listado_Rol, Listado_EstadoUsuario };
+const Listado_EstadoProyecto = {
+  Activo: 'Activo',
+  Inactivo: 'Inactivo',
+}
+
+const Listado_FaseProyecto = {
+  Iniciado: 'Iniciado',
+  Desarrollo: 'Desarrollo',
+  Terminado: 'Terminado',
+}
+
+const Listado_TipoObjetivo={
+  General: 'General',
+  Especifico: 'Especifico',
+}
+
+export { Listado_Rol, Listado_EstadoUsuario, Listado_EstadoProyecto, Listado_FaseProyecto, Listado_TipoObjetivo };

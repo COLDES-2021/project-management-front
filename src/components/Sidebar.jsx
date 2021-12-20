@@ -7,12 +7,10 @@ const SidebarLinks = () => {
   return (
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
-      <PrivateComponent roleList={['Administrador']}>
-        <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user' />
+      <PrivateComponent roleList={['Administrador', 'Lider']}>
+        <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-users' />
       </PrivateComponent>
-      <SidebarRoute to='/page2' title='Pagina2' icon='fas fa-smile-wink' />
-      <SidebarRoute to='/category1' title='Catego 1' icon='fab fa-amazon' />
-      <SidebarRoute to='/category1/page1' title='Test' icon='fas fa-car' />
+      <SidebarRoute to='/proyectos' title='Proyectos' icon='fas fa-folder' />
       <Logout />
     </ul>
   );
@@ -26,10 +24,10 @@ const Logout = () => {
   };
   return (
     <li onClick={() => deleteToken()}>
-      <NavLink to='/auth/login' className='sidebar-route text-red-700'>
+      <NavLink to='/auth/login' className='sidebar-route text-green-700'>
         <div className='flex items-center'>
           <i className='fas fa-sign-out-alt' />
-          <span className='text-sm  ml-2'>Cerrar Sesión</span>
+          <span className='ml-2'>Cerrar Sesión</span>
         </div>
       </NavLink>
     </li>
@@ -39,8 +37,8 @@ const Logout = () => {
 const Logo = () => {
   return (
     <div className='py-3 w-full flex flex-col items-center justify-center'>
-      <img src='logo.png' alt='Logo' className='h-16' />
-      <span className='my-2 text-xl font-bold text-center'>Título de Mi Aplicación</span>
+      <i className="fas fa-cogs fa-4x text-green-600 m-5"></i>
+      <span className='my-2 text-xl font-bold text-center text-gray-600'>Gestión de Proyectos</span>
     </div>
   );
 };
@@ -52,7 +50,7 @@ const Sidebar = () => {
       {/* Sidebar starts */}
 
       <div className='sidebar hidden md:flex'>
-        <div className='px-8'>
+        <div className='px-4'>
           <Logo />
           <SidebarLinks />
         </div>
@@ -86,17 +84,13 @@ const ResponsiveSidebar = () => {
 const SidebarRoute = ({ to, title, icon }) => {
   return (
     <li>
-      <NavLink
-        to={to}
-        className={({ isActive }) =>
-          isActive
-            ? 'sidebar-route text-white bg-indigo-700'
-            : 'sidebar-route text-gray-900 hover:text-white hover:bg-indigo-400'
-        }
-      >
+      <NavLink to={to} className={({ isActive }) =>
+        isActive
+          ? 'sidebar-route text-white bg-green-600'
+          : 'sidebar-route text-gray-900 hover:text-white hover:bg-green-500'}>
         <div className='flex items-center'>
           <i className={icon} />
-          <span className='text-sm  ml-2'>{title}</span>
+          <span className='ml-2'>{title}</span>
         </div>
       </NavLink>
     </li>
